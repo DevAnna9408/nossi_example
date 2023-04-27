@@ -18,3 +18,12 @@ def mdbt(root):
             q.append((cur_node.right, cur_depth + 1))
 
     return level
+
+def mdbt_post(root):
+
+    if root is None:
+        return 0
+
+    left_depth = mdbt_post(root.left)
+    right_depth = mdbt_post(root.right)
+    return max(left_depth, right_depth) + 1
